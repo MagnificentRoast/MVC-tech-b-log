@@ -1,4 +1,4 @@
-const Post = require('./Post');
+const Post = require('./Post.js');
 const User = require('./User');
 const Comment = require('./Comment');
 
@@ -11,19 +11,16 @@ Post.belongsTo(User, {
     onDelete: 'SET NULL'
 });
 
-User.belongsToMany(Post, {
-    through: Vote,
-    as: 'voted_posts',
+// User.belongsToMany(Post, {
+//     foreignKey: 'user_id',
+//     onDelete: 'SET NULL'
+// });
 
-    foreignKey: 'user_id',
-    onDelete: 'SET NULL'
-});
-
-Post.belongsToMany(User, {
-    through: Vote,
-    as: 'voted_posts',
-    onDelete: 'SET NULL'
-});
+// Post.belongsToMany(User, {
+//     through: Vote,
+//     as: 'voted_posts',
+//     onDelete: 'SET NULL'
+// });
 
 
 Comment.belongsTo(User, {
